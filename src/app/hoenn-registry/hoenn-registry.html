@@ -1,59 +1,69 @@
 <div class="hoenn-registry">
-    <form [formGroup]="hoennLeaderForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="pokemonHoennRegistry" (ngSubmit)="onSubmit()" novalidate>
         <div>
             <label for="name">Name: </label>
-            <input id="name" type="text" formControlName="name" />
-            @if (pokemonHoennRegistry.controls.name.touched $$ pokemonHoennRegistry.controls.name.hasError('required')){
-                <p role="alert">Name is required.</p>
-            }
+            <input id="name" type="text" formControlName="name" placeholder="Gym Leader's Name"/>
         </div>
 
         <div>
             <label for="region">Region: </label>
-            <input id="region" type="text" formControlName="type" />
-            @if (pokemonHoennRegistry.controls.region.touched && pokemonForm.controls.region.hasError('required')){
-                <p role="alert">Region is required.</p>
-            }
+            <input id="region" type="text" formControlName="type" placeholder="Gym Leader's Region"/>
         </div>
 
         <div>
             <label for="town">Town: </label>
-            <input id="town" type="text" formControlName="type" />
-            @if (pokemonHoennRegistry.controls.town.touched && pokemonForm.controls.town.hasError('required')){
-                <p role="alert">Town is required.</p>
-            }
+            <input id="town" type="text" formControlName="type" placeholder="Gym Leader's Town"/>
         </div>
 
         <div>
             <label for="badge">Badge: </label>
-            <input id="Badge" type="text" formControlName="type" />
-            @if (pokemonHoennRegistry.controls.badge.touched && pokemonForm.controls.badge.hasError('required')){
-                <p role="alert">Badge is required.</p>
-            }
+            <input id="Badge" type="text" formControlName="type" placeholder="Gym Leader's Badge"/>
         </div>
 
         <div>
             <label for="specialty">Specialty: </label>
-            <input id="specialty" type="text" formControlName="type" />
-            @if (pokemonHoennRegistry.controls.specialty.touched && pokemonForm.controls.specialty.hasError('required')){
-                <p role="alert">Specialty is required.</p>
-            }
+            <input id="specialty" type="text" formControlName="type" placeholder="Gym Leader's Specialty"/>
         </div>
 
         <div>
             <label for="aceLevel">Ace Level: </label>
-            <input id="aceLevel" type="number" min="1" formControlName="level" />
-            @if (pokemonHoennRegistry.controls.aceLevel.touched && pokemonForm.controls.aceLevel.hasError('required')){
-                <p role="alert">Ace Level is required.</p>
-            }
+            <input id="aceLevel" type="number" min="1" formControlName="level" placeholder="Gym Leader's Ace Level"/>
         </div>
 
         <div>
             <label for="motto">Motto: </label>
-            <input id="motto" type="text" formControlName="type" />
-            @if (pokemonHoennRegistry.controls.motto.touched && pokemonForm.controls.motto.hasError('required')){
-                <p role="alert">Motto is required.</p>
+            <input id="motto" type="text" formControlName="type" placeholder="Gym Leader's Motto"/>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="pokemonHoennRegistry.invalid" class="btn-submit">
+                {{ editingId() ? 'Confirm Update' : 'Placeholder' }} 
+            </button>
+
+            @if(editingId()){
+                <button type="button" (click)="startEdit()" class="btn-cancel"> Cancel </button>
             }
         </div>
     </form>
+
+    <hr />
+
+    <h3>Placeholder Test</h3>
+    <div class="pokemon-grid">
+        @for (p of pokemonRegistry.pokemonGymLeader(); track p._id){
+            <div class="pokemonLeader-card">
+                <div class="card-info">
+                    <strong>{{p.name}}</strong>
+                    <span>{{p.aceLevel}}</span>
+                    <p>{{p.region}} | {{p.town}}</p>
+                    <p>{{p.badge}} | {{p.specialty}}</p>
+                    <span>{{p.motto}}</span>
+                </div>
+                <div class="card-actions">
+                    <button (click)="startEdit(p)" class="btn-edit">Edit</button>
+                    <button (click)="deletePokeLeader(p._id)" class="btn-delete">Delete</button>
+                </div>
+            </div>
+        }
+    </div>
 </div>

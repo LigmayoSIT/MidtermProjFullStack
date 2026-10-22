@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, inject, signal, OnInit, Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Pokemon } from '../pokemon';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -25,28 +26,28 @@ export class HoennRegistry implements OnInit {
   });
 
   ngOnInit(){
-    this.pokemonService.fetchPokeLeader();
+    this.pokemonRegistry.fetchGymLeader();
   }
   deletePokeLeader(id: string){
     if(confirm("Are you sure you want to delete this Leader?")){
-      this.pokemonRegistry.deletePokeLeader(id);
+      this.pokemonRegistry.deleteGymLeader(id);
     }
-    this.pokemonRegistry.fetchPokeLeader();
+    this.pokemonRegistry.fetchGymLeader();
   }
   startEdit(){
     this.editingId.set(null);
-    this.pokemonHoennRegistry.patchValue(pokemon);
+    this.pokemonHoennRegistry.patchValue(Pokemon);
   }
   onSubmit(){
     if (this.pokemonHoennRegistry.invalid) return;
     const data = this.pokemonHoennRegistry.getRawValue();
 
     if(this.pokemonHoennRegistry.valid){
-      this.pokemonService.saveGymLeader(data).subscribe({
+      this.pokemonRegistry.saveGymLeader(data).subscribe({
         next: () => {
-          this.pokemonService.fetchGymLeader();
+          this.pokemonRegistry.fetchGymLeader();
           this.pokemonHoennRegistry.reset();
-          console.log("Pokemon saved successfully"):
+          console.log("Pokemon saved successfully");
         }
       })
     }
