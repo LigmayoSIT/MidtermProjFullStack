@@ -1,19 +1,218 @@
-.kanto-registry{
-  padding: 1rem 1.5rem 3.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  color: olive;
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid;
-  color: orange;
+.kanto-registry {
+  padding: 19px 12px 19px;
+  text-align: center;
+  border-top: 4px solid #d9b448;
+  border: 3px solid #d9b448;
+  border-radius: 14px;
+  background-color: #223458;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 3px, transparent 3px, transparent 9px),
+    linear-gradient(180deg, #2a4075, #1d2c4f);
+
+  box-shadow:
+    inset 0 0 0 4px #223458,
+    inset 0 0 0 5px #4a6199,
+    0 6px 14px rgba(0, 0, 0, 0.35);
 }
-.buttonEdit{
-  background-color: #9e4040;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.input-card > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.input-card label {
+  flex: 0 0 90px;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ecd07a;
+}
+
+.input-card input {
+  flex: 1;
+  padding: 9px 12px;
+  font-size: 0.9rem;
+  color: #f2f4fa;
+  background-color: #1a2342;
+  border: 1px solid #8f6f1c;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+.input-card input::placeholder {
+  color: #8fa0c9;
+}
+
+.input-card input:hover {
+  border-color: #d9b448;
+}
+
+.input-card input:focus {
+  border-color: #fff3c4;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(217, 180, 72, 0.5);
+}
+
+.input-card hr {
+  border: none;
+  border-top: 1px dashed #4a6199;
+  margin: 16px 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.input-card{
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: #f2f4fa;
+  border-bottom: 1px dashed #4a6199;
+  padding: 19px 12px 19px;
+  text-align: center;
+  border: 1px solid #3d558a;
+  border-top: 4px solid #d9b448;
+  border-radius: 12px;
+  background-color: #223458;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 3px, transparent 3px, transparent 9px),
+    linear-gradient(180deg, #2c4378, #1d2c4f);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.buttonEdit {
+  padding: 9px 26px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2342;
+  border: 1px solid #8f6f1c;
+  border-radius: 20px;
+  background-color: #d9b448;
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0.18) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #ecd07a, #c9a13a);
+  box-shadow: 0 3px 0 #8f6f1c, 0 6px 8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.buttonEdit:hover {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0.22) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #f3dc8e, #d4ac43);
+}
+.buttonEdit:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #8f6f1c, 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.buttonEdit:focus-visible {
+  outline: 2px solid #fff3c4;
+  outline-offset: 2px;
+}
+
+.buttonDelete {
+  padding: 9px 26px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2342;
+  border: 1px solid #8f6f1c;
+  border-radius: 20px;
+  background-color: #d9b448;
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0.18) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #ecd07a, #c9a13a);
+  box-shadow: 0 3px 0 #8f6f1c, 0 6px 8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.buttonDelete:hover {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0.22) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #f3dc8e, #d4ac43);
+}
+.buttonDelete:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #8f6f1c, 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.buttonDelete:focus-visible {
+  outline: 2px solid #fff3c4;
+  outline-offset: 2px;
+}
+
+button {
+  padding: 9px 26px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2342;
+  border: 1px solid #8f6f1c;
+  border-radius: 20px;
+  background-color: #d9b448;
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0.18) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #ecd07a, #c9a13a);
+  box-shadow: 0 3px 0 #8f6f1c, 0 6px 8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+button:hover {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0.22) 2px, transparent 2px, transparent 6px),
+    linear-gradient(180deg, #f3dc8e, #d4ac43);
+}
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #8f6f1c, 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+button:focus-visible {
+  outline: 2px solid #fff3c4;
+  outline-offset: 2px;
+}
+
+.pokemon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pokemonLeader-card {
+  width: fit-content;
+  min-width: 200px;
+  max-width: 320px;
+}
+
+.card-info {
+  overflow: hidden;
+  text-align: left;
+  padding: 16px 18px;
+  color: #f2f4fa;
+  border: 3px solid #d9b448;
+  border-radius: 14px;
+
+  background-color: #223458;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 3px, transparent 3px, transparent 9px),
+    linear-gradient(180deg, #2a4075, #1d2c4f);
+
+  box-shadow:
+    inset 0 0 0 4px #223458,
+    inset 0 0 0 5px #4a6199,
+    0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
 }

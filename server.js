@@ -29,10 +29,10 @@ app.post('/api/pokemon', async (req, res) => {
     res.status(201).send(pokemon);
 })
 
-app.get('/api/pokemon/ :id', async (req, res) => {
+app.get('/api/pokemon', async (req, res) => {
     const list = await Pokemon.find();
     res.send(list);
-})
+});
 
 app.post('/api/pokemon/ :id', async (req, res) => {
     const { id } = req.params;

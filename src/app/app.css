@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e6eaf5;
+  background-image: linear-gradient(180deg, rgba(43, 67, 120, 0.35) 0, transparent 380px);
+}
+::ng-deep body {
+  margin: 0;
+  background-color: #16223f;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+h1 {
+  padding: 19px 12px 19px;
+  text-align: center;
+  border-top: 4px solid #d9b448;
+  border: 3px solid #d9b448;
+  border-radius: 14px;
+  background-color: #223458;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 3px, transparent 3px, transparent 9px),
+    linear-gradient(180deg, #2a4075, #1d2c4f);
+}
