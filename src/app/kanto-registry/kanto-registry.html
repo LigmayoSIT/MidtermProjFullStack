@@ -1,1 +1,72 @@
-<p>kanto-registry works!</p>
+<div class="kanto-registry">
+    <h3>Kanto Region</h3>
+    <form [formGroup]="pokemonKantoRegistry" (ngSubmit)="onSubmit()" novalidate>
+        <div>
+            <label for="name">Name: </label>
+            <input id="name" type="text" formControlName="name" placeholder="Gym Leader's Name"/>
+        </div>
+
+        <div>
+            <label for="region">Region: </label>
+            <input id="region" type="text" formControlName="region" placeholder="Gym Leader's Region"/>
+        </div>
+
+        <div>
+            <label for="town">Town: </label>
+            <input id="town" type="text" formControlName="town" placeholder="Gym Leader's Town"/>
+        </div>
+
+        <div>
+            <label for="badge">Badge: </label>
+            <input id="badge" type="text" formControlName="badge" placeholder="Gym Leader's Badge"/>
+        </div>
+
+        <div>
+            <label for="specialty">Specialty: </label>
+            <input id="specialty" type="text" formControlName="specialty" placeholder="Gym Leader's Specialty"/>
+        </div>
+
+        <div>
+            <label for="aceLevel">Ace Level: </label>
+            <input id="aceLevel" type="number" min="1" formControlName="aceLevel" placeholder="Gym Leader's Ace Level"/>
+        </div>
+
+        <div>
+            <label for="motto">Motto: </label>
+            <input id="motto" type="text" formControlName="motto" placeholder="Gym Leader's Motto"/>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="pokemonKantoRegistry.invalid" class="btn-submit">
+                {{ editingId() ? 'Confirm Update' : 'Submit' }} 
+            </button>
+
+            @if (editingId()) {
+                <button type="button" (click)="cancelEdit()" class="btn-cancel">Cancel</button>
+            }
+        </div>
+    </form>
+
+    <hr />
+
+    <div class="pokemon-grid">
+        @for (p of kantoLeaders(); track p._id){
+            <div class="pokemonLeader-card">
+                <div class="card-info">
+                    <strong>{{p.name}}</strong>
+                    <p>{{p.aceLevel}}</p>
+                    <p>{{p.region}}</p>
+                    <p>{{p.town}}</p>
+                    <p>{{p.badge}}</p>
+                    <p>{{p.specialty}}</p>
+                    <p>{{p.motto}}</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buttonEdit btn-edit" (click)="startEdit(p)">Edit</button>
+                    <button class="buttonDelete btn-delete" (click)="deletePokeLeader(p._id)">Delete</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

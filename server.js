@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGODV_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
@@ -29,7 +29,7 @@ app.post('/api/pokemon', async (req, res) => {
     res.status(201).send(pokemon);
 })
 
-app.get('/ap/pokemon/ :id', async (req, res) => {
+app.get('/api/pokemon/ :id', async (req, res) => {
     const list = await Pokemon.find();
     res.send(list);
 })

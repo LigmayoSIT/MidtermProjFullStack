@@ -1,4 +1,5 @@
 <div class="hoenn-registry">
+    <h3>Kanto Region</h3>
     <form [formGroup]="pokemonHoennRegistry" (ngSubmit)="onSubmit()" novalidate>
         <div>
             <label for="name">Name: </label>
@@ -7,63 +8,65 @@
 
         <div>
             <label for="region">Region: </label>
-            <input id="region" type="text" formControlName="type" placeholder="Gym Leader's Region"/>
+            <input id="region" type="text" formControlName="region" placeholder="Gym Leader's Region"/>
         </div>
 
         <div>
             <label for="town">Town: </label>
-            <input id="town" type="text" formControlName="type" placeholder="Gym Leader's Town"/>
+            <input id="town" type="text" formControlName="town" placeholder="Gym Leader's Town"/>
         </div>
 
         <div>
             <label for="badge">Badge: </label>
-            <input id="Badge" type="text" formControlName="type" placeholder="Gym Leader's Badge"/>
+            <input id="badge" type="text" formControlName="badge" placeholder="Gym Leader's Badge"/>
         </div>
 
         <div>
             <label for="specialty">Specialty: </label>
-            <input id="specialty" type="text" formControlName="type" placeholder="Gym Leader's Specialty"/>
+            <input id="specialty" type="text" formControlName="specialty" placeholder="Gym Leader's Specialty"/>
         </div>
 
         <div>
             <label for="aceLevel">Ace Level: </label>
-            <input id="aceLevel" type="number" min="1" formControlName="level" placeholder="Gym Leader's Ace Level"/>
+            <input id="aceLevel" type="number" min="1" formControlName="aceLevel" placeholder="Gym Leader's Ace Level"/>
         </div>
 
         <div>
             <label for="motto">Motto: </label>
-            <input id="motto" type="text" formControlName="type" placeholder="Gym Leader's Motto"/>
+            <input id="motto" type="text" formControlName="motto" placeholder="Gym Leader's Motto"/>
         </div>
 
         <div class="form-actions">
             <button type="submit" [disabled]="pokemonHoennRegistry.invalid" class="btn-submit">
-                {{ editingId() ? 'Confirm Update' : 'Placeholder' }} 
+                {{ editingId() ? 'Confirm Update' : 'Submit' }} 
             </button>
 
-            @if(editingId()){
-                <button type="button" (click)="startEdit()" class="btn-cancel"> Cancel </button>
+            @if (editingId()) {
+                <button type="button" (click)="cancelEdit()" class="btn-cancel">Cancel</button>
             }
         </div>
     </form>
 
     <hr />
 
-    <h3>Placeholder Test</h3>
     <div class="pokemon-grid">
         @for (p of pokemonRegistry.pokemonGymLeader(); track p._id){
             <div class="pokemonLeader-card">
                 <div class="card-info">
                     <strong>{{p.name}}</strong>
-                    <span>{{p.aceLevel}}</span>
-                    <p>{{p.region}} | {{p.town}}</p>
-                    <p>{{p.badge}} | {{p.specialty}}</p>
-                    <span>{{p.motto}}</span>
+                    <p>{{p.aceLevel}}</p>
+                    <p>{{p.region}}</p>
+                    <p>{{p.town}}</p>
+                    <p>{{p.badge}}</p>
+                    <p>{{p.specialty}}</p>
+                    <p>{{p.motto}}</p>
                 </div>
                 <div class="card-actions">
-                    <button (click)="startEdit(p)" class="btn-edit">Edit</button>
-                    <button (click)="deletePokeLeader(p._id)" class="btn-delete">Delete</button>
+                    <button class="buttonEdit btn-edit" (click)="startEdit(p)">Edit</button>
+                    <button class="buttonDelete btn-delete" (click)="deletePokeLeader(p._id)">Delete</button>
                 </div>
             </div>
         }
     </div>
 </div>
+

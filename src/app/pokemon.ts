@@ -16,9 +16,9 @@ export class Pokemon {
     saveGymLeader(data: any){
         return this.http.post(this.apiURL, data);
     }
-    deleteGymLeader(id: string){
-        throw new Error('Method not implemented.');
-    }
+    deleteGymLeader(id: string) {
+        return this.http.delete<void>(`${this.apiURL}/${id}`);
+    }   
     updateGymLeader(id: string, data: any){
         return this.http.put(`${this.apiURL}/${id}`, data);
     }
